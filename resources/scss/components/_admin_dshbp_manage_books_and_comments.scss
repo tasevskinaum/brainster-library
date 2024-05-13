@@ -1,0 +1,104 @@
+@use "../abstracts/mixins" as mix;
+@use "../abstracts/variables" as var;
+@use "sass:math";
+
+#books,
+#comments {
+  span {
+    &.title {
+      display: block;
+      text-align: center;
+      font-size: math.div(var.$gutter-base, 1.5);
+      text-transform: capitalize;
+    }
+  }
+  form {
+    &#add-book {
+      .form-inner {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: end;
+        padding: 10px 0;
+        margin-right: -10px;
+        .form-group {
+          flex-basis: calc(100% / 7);
+          .ab-feedback {
+            display: none;
+            font-style: italic;
+            font-size: 12px;
+            color: red;
+          }
+          .inner {
+            margin-right: 10px;
+            & > * {
+              width: 100%;
+            }
+          }
+          @include mix.tablet-styles {
+            flex-basis: 50%;
+            margin-bottom: 10px;
+          }
+          @include mix.mobile-l-styles {
+            flex-basis: 100%;
+          }
+        }
+
+        @include mix.tablet-styles {
+          justify-content: center;
+        }
+      }
+    }
+  }
+  .all-books,
+  .pending-comments,
+  .approved-comments,
+  .rejected-comments {
+    .table {
+      height: 40vh;
+      overflow-x: auto;
+      #adm-all-bt,
+      #adm-all-pc,
+      #adm-all-ac,
+      #adm-all-rc {
+        width: 100%;
+        border-collapse: collapse;
+        overflow-x: auto;
+        thead {
+          text-align: left;
+        }
+        tbody {
+          tr {
+            &:nth-child(2n + 1) {
+              background-color: var.$background-color-tertiary;
+            }
+          }
+        }
+        tr {
+          border-bottom: 1px solid rgba(128, 128, 128, 0.432);
+        }
+        td {
+          & > span {
+            &.action {
+              cursor: pointer;
+              .fa-trash,
+              .fa-xmark {
+                color: rgb(252, 34, 34);
+              }
+              .fa-pen-to-square,
+              .fa-check {
+                color: limegreen;
+              }
+              &:not(:last-child) {
+                margin-right: 10px;
+              }
+            }
+          }
+        }
+        th,
+        td {
+          padding: 10px 20px;
+        }
+      }
+    }
+  }
+}

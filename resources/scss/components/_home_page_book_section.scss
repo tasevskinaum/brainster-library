@@ -1,0 +1,27 @@
+@use "../abstracts/mixins" as mix;
+@use "../abstracts/variables" as var;
+@use "sass:math";
+
+.sec {
+  @extend %section;
+  .hp-bs {
+    @extend %wrap;
+    h2 {
+      margin-bottom: 5px;
+    }
+    .books {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+
+      @include mix.laptop-l-styles {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      @include mix.tablet-styles {
+        grid-template-columns: 1fr 1fr;
+      }
+      @include mix.mobile-l-styles {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}

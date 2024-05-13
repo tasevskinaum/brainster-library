@@ -1,0 +1,239 @@
+@use "../abstracts/mixins" as mix;
+@use "../abstracts/variables" as var;
+@use "sass:math";
+
+.navbar {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 10px var.$gutter-base;
+  transition: 0.3s ease;
+  z-index: 1058;
+  background-color: white;
+  &.active {
+    @include mix.laptop-m-styles {
+      background-color: var.$background-color-quaternary;
+    }
+  }
+  .navbar-brand {
+    display: block;
+    width: var.$gutter-base * 2;
+    @include mix.laptop-m-styles {
+      width: var.$gutter-base * 1.7;
+    }
+    @include mix.mobile-l-styles {
+      width: var.$gutter-base * 1.5;
+    }
+  }
+  .navbar-toggler {
+    display: none;
+    width: var.$gutter-base * 1.66;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    transform: scale(-1, 1);
+    cursor: pointer;
+    .bar {
+      content: "";
+      display: block;
+      width: 100%;
+      height: math.div(var.$gutter-base, 6);
+      background-color: var.$background-color-tertiary;
+      border-radius: math.div(var.$gutter-base, 3);
+      transition: 0.3s ease;
+      &:not(:last-child) {
+        margin-bottom: math.div(var.$gutter-base, 10);
+      }
+      &.bar-one {
+        width: 100%;
+      }
+      &.bar-two {
+        width: 75%;
+      }
+      &.bar-three {
+        width: 50%;
+      }
+      @include mix.mobile-l-styles {
+        height: math.div(var.$gutter-base, 7.5);
+      }
+    }
+    &.active {
+      @include mix.laptop-m-styles {
+        .bar {
+          background-color: var.$background-color-base;
+          &:not(:last-child) {
+            margin-bottom: 0;
+          }
+          &.bar-one {
+            transform: rotate(-45deg);
+          }
+          &.bar-two {
+            width: 100%;
+            margin-top: -(math.div(var.$gutter-base, 6));
+            transform: rotate(45deg);
+            @include mix.mobile-l-styles {
+              margin-top: -(math.div(var.$gutter-base, 7.5));
+            }
+          }
+          &.bar-three {
+            display: none;
+          }
+        }
+      }
+    }
+    @include mix.laptop-m-styles {
+      display: block;
+    }
+    @include mix.mobile-l-styles {
+      width: var.$gutter-base * 1.5;
+    }
+  }
+  .menu-wrapper {
+    &.active {
+      @include mix.laptop-m-styles {
+        visibility: visible;
+        left: 50%;
+      }
+      @include mix.mobile-l-styles {
+        left: 0;
+      }
+    }
+    .navbar-nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 0;
+      padding-left: 0;
+      list-style-type: none;
+      .nav-item {
+        position: relative;
+        &:not(:last-child) {
+          margin-right: math.div(var.$gutter-base, 1.5);
+          @include mix.laptop-m-styles {
+            margin-right: 0;
+          }
+        }
+        .nav-link {
+          display: block;
+          color: var.$background-color-tertiary;
+          text-transform: capitalize;
+          font-weight: var.$font-weight-medium-bold;
+          transition: 0.2s ease;
+          text-align: center;
+
+          &:hover {
+            transform: scale(1.15);
+            @include mix.laptop-m-styles {
+              transform: unset;
+            }
+          }
+          &.log-in {
+            @include mix.laptop-m-styles {
+              padding: 5px 10px;
+              border: 1px solid white;
+              border-radius: 5px;
+              text-align: center;
+              &:hover {
+                background-color: rgba(255, 255, 255, 0.397);
+              }
+            }
+          }
+          &.log-out {
+            display: none;
+            cursor: pointer;
+
+            @include mix.laptop-m-styles {
+              display: block;
+            }
+          }
+          @include mix.laptop-m-styles {
+            color: var.$text-color-primary;
+          }
+        }
+        @include mix.laptop-m-styles {
+          font-size: var.$heading-size-tiny;
+          padding: math.div(var.$gutter-base, 1.5) 0;
+          border-bottom: 1px solid var.$background-color-tertiary;
+          &:first-child {
+            padding-top: 0;
+          }
+        }
+        @include mix.mobile-l-styles {
+          font-size: var.$font-size-base;
+        }
+      }
+      @include mix.laptop-m-styles {
+        flex-direction: column;
+      }
+    }
+    @include mix.laptop-m-styles {
+      visibility: hidden;
+      width: 50%;
+      height: 100%;
+      position: fixed;
+      left: 100%;
+      padding: math.div(var.$gutter-base, 1.5);
+      background-color: var.$background-color-quaternary;
+      transition: 0.3s ease;
+      z-index: 9999;
+    }
+    @include mix.mobile-l-styles {
+      width: 100%;
+    }
+  }
+  .auth-menu {
+    display: flex;
+    align-items: center;
+    .item {
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+      position: relative;
+      .dropdown {
+        display: none;
+        position: absolute;
+        width: 160px;
+        left: -110px;
+        top: 50px;
+        background-color: rgba(128, 128, 128, 0.164);
+        border: 1px solid transparent;
+        border-radius: 10px;
+        padding: 5px;
+        z-index: 9999;
+        & > div {
+          padding: 5px 5px;
+          border-radius: 10px;
+          &:hover {
+            background-color: rgba(128, 128, 128, 0.281);
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    #spc {
+      width: var.$gutter-base * 1.5;
+      border-radius: 50%;
+      overflow: hidden;
+      img {
+        cursor: pointer;
+      }
+      @include mix.laptop-m-styles {
+        width: var.$gutter-base * 1.7;
+      }
+      @include mix.mobile-l-styles {
+        width: var.$gutter-base * 1.5;
+      }
+    }
+    @include mix.laptop-m-styles {
+      display: none;
+    }
+  }
+  @include mix.laptop-m-styles {
+    padding: 0 math.div(var.$gutter-base, 1.5);
+  }
+}

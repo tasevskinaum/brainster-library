@@ -1,0 +1,236 @@
+@use "../abstracts/mixins" as mix;
+@use "../abstracts/variables" as var;
+@use "sass:math";
+
+.root {
+  @extend %wrap;
+  @extend %section;
+
+  display: grid;
+  grid-template-columns: 30% 70%;
+
+  .book {
+    .img {
+      width: 80%;
+      margin: 0 auto;
+
+      img {
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .info {
+        padding: 10px;
+        text-align: end;
+        & > * {
+          display: block;
+          font-weight: bold;
+          &:not(:last-child) {
+            margin-bottom: 5px;
+          }
+        }
+      }
+    }
+    @include mix.tablet-styles {
+      width: 70%;
+      margin: 0 auto;
+      background-color: rgba(184, 184, 184, 0.2);
+      padding: 30px 0;
+      border-radius: 30px;
+    }
+    @include mix.mobile-l-styles {
+      width: 100%;
+    }
+  }
+
+  .comments-notes {
+    .choose {
+      text-align: center;
+      & > span {
+        &.btn {
+          display: inline-block;
+          color: var.$background-color-tertiary;
+          font-weight: 500;
+          transition: 0.3s ease;
+          cursor: pointer;
+          border: 1px solid transparent;
+          border-radius: 5px;
+          &:not(:last-child) {
+            margin-right: 5px;
+          }
+          &:hover {
+            scale: 1.15;
+          }
+        }
+      }
+      @include mix.tablet-styles {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  #comments-container {
+    & > * {
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    }
+    .title {
+      h2 {
+        margin-bottom: 0;
+      }
+    }
+    #add-comment {
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.336);
+      #add-comment-form {
+        .form-group {
+          &:not(:last-child) {
+            margin-bottom: 10px;
+          }
+          .form-control {
+            border-color: transparent;
+          }
+          .ab-feedback {
+            display: none;
+            font-style: italic;
+            font-size: 12px;
+            color: red;
+          }
+          &.btn {
+            text-align: right;
+            button[type="submit"] {
+              border: 1px solid transparent;
+              padding: 5px 10px;
+              border-radius: 30px;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+    .comments {
+      .comment {
+        position: relative;
+        padding: 10px;
+        border: 1px solid black;
+        border-radius: 10px;
+        &:not(:last-child) {
+          margin-bottom: 15px;
+        }
+        .user-info {
+          width: max-content;
+          margin-bottom: 10px;
+          .comment-posted-ago {
+            margin-left: 5px;
+            color: grey;
+            font-size: 10px;
+          }
+          .username {
+            font-size: 12px;
+            display: block;
+          }
+        }
+        .action {
+          position: absolute;
+          right: 10px;
+          .fa-trash {
+            color: red;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  #notes-container {
+    & > * {
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    }
+    .title {
+      h2 {
+        margin-bottom: 0;
+      }
+    }
+    #add-note-form {
+      width: 50%;
+      margin: 0 auto;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.336);
+      .form-group {
+        &:not(:last-child) {
+          margin-bottom: 10px;
+        }
+        &.btn {
+          text-align: right;
+          button[type="submit"] {
+            border: 1px solid transparent;
+            padding: 5px 10px;
+            border-radius: 30px;
+            cursor: pointer;
+          }
+        }
+        .ab-feedback {
+          display: none;
+          font-style: italic;
+          font-size: 12px;
+          color: red;
+        }
+      }
+    }
+    .notes {
+      .note {
+        position: relative;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid transparent;
+        &:hover {
+          background-color: rgba(128, 128, 128, 0.13);
+        }
+        .note-info {
+          width: max-content;
+          margin-bottom: 10px;
+          & > * {
+            &:not(:last-child) {
+              margin-bottom: 5px;
+            }
+          }
+          .note-title {
+            font-weight: bold;
+          }
+          .note-note {
+            font-size: 12px;
+            display: block;
+          }
+        }
+        .actions {
+          position: absolute;
+          right: 10px;
+        }
+        .action {
+          &:not(:last-child) {
+            margin-right: 5px;
+          }
+          .fa-trash {
+            color: red;
+            cursor: pointer;
+          }
+          .fa-pen-to-square {
+            color: limegreen;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+  @include mix.tablet-styles {
+    display: flex;
+    flex-direction: column;
+    & > * {
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
+    }
+  }
+}

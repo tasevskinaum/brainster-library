@@ -1,0 +1,39 @@
+@use "../abstracts/variables" as var;
+@use "../abstracts/mixins" as mix;
+@use "sass:math";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var.$font-family-base;
+  font-weight: var.$font-weight-base;
+  color: var.$text-color-base;
+}
+
+h1,
+h2,
+h3 {
+  margin-bottom: math.div(var.$gutter-base, 2);
+}
+
+.my-swal {
+  z-index: 9999;
+}
+
+.form-control {
+  padding: 5px;
+  background-color: rgba(128, 128, 128, 0.15);
+  border: 1px solid var.$background-color-tertiary;
+  border-radius: 5px;
+  width: 100%;
+  &.btn {
+    background-color: var.$background-color-tertiary;
+    color: white;
+    cursor: pointer;
+  }
+  @include mix.tablet-styles {
+    padding: 10px 5px;
+  }
+}

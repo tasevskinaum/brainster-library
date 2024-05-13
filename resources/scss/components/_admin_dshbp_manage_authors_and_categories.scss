@@ -1,0 +1,128 @@
+@use "../abstracts/mixins" as mix;
+@use "../abstracts/variables" as var;
+@use "sass:math";
+
+#authors,
+#categories {
+  > .inner {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -30px;
+    > * {
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
+    .add-author,
+    .add-category {
+      flex-basis: 30%;
+      > .inner {
+        margin-right: 30px;
+        & > * {
+          &:not(:last-child) {
+            margin-bottom: 10px;
+          }
+        }
+        & > span {
+          &.title {
+            display: block;
+            text-align: center;
+          }
+        }
+        form {
+          &#add-author-form,
+          &#add-category-form {
+            .form-group {
+              &:not(:last-child) {
+                margin-bottom: 10px;
+              }
+              .ab-feedback {
+                display: none;
+                font-style: italic;
+                font-size: 12px;
+                color: red;
+              }
+            }
+          }
+        }
+        @include mix.tablet-styles {
+          margin-right: 0;
+        }
+      }
+      @include mix.tablet-styles {
+        flex-basis: 100%;
+      }
+    }
+    .all-authors,
+    .all-categories {
+      flex-basis: 70%;
+      overflow: hidden;
+      > .inner {
+        margin-right: 30px;
+        & > * {
+          &:not(:last-child) {
+            margin-bottom: 10px;
+          }
+        }
+        & > span {
+          &.title {
+            display: block;
+            text-align: center;
+          }
+        }
+        .table {
+          height: 60vh;
+          overflow-x: auto;
+          #adm-all-at,
+          #adm-all-ct {
+            width: 100%;
+            border-collapse: collapse;
+            overflow-x: auto;
+            thead {
+              text-align: left;
+            }
+            tbody {
+              tr {
+                &:nth-child(2n + 1) {
+                  background-color: var.$background-color-tertiary;
+                }
+              }
+            }
+            tr {
+              border-bottom: 1px solid rgba(128, 128, 128, 0.432);
+            }
+            td {
+              & > span {
+                &.action {
+                  cursor: pointer;
+                  .fa-trash {
+                    color: rgb(252, 34, 34);
+                  }
+                  .fa-pen-to-square {
+                    color: limegreen;
+                  }
+                  &:not(:last-child) {
+                    margin-right: 10px;
+                  }
+                }
+              }
+            }
+            th,
+            td {
+              padding: 10px 20px;
+            }
+          }
+        }
+        @include mix.tablet-styles {
+          margin-right: 0;
+        }
+      }
+      @include mix.tablet-styles {
+        flex-basis: 100%;
+      }
+    }
+    @include mix.tablet-styles {
+      margin-right: 0;
+    }
+  }
+}

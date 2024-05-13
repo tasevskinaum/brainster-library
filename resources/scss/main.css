@@ -1,0 +1,1798 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;600;900&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu+Mono&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+  margin-top: 0;
+}
+
+img {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.root, .edit-container, .container, .sec {
+  padding: 1.875rem;
+}
+@media (max-width: 768px) {
+  .root, .edit-container, .container, .sec {
+    padding: 0.9375rem;
+  }
+}
+
+.root, .container, .sec .hp-bs {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 1024px) {
+  .root, .container, .sec .hp-bs {
+    width: 90%;
+  }
+}
+@media (max-width: 768px) {
+  .root, .container, .sec .hp-bs {
+    width: 100%;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: #000000;
+}
+
+h1,
+h2,
+h3 {
+  margin-bottom: 0.9375rem;
+}
+
+.my-swal {
+  z-index: 9999;
+}
+
+.form-control {
+  padding: 5px;
+  background-color: rgba(128, 128, 128, 0.15);
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  width: 100%;
+}
+.form-control.btn {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .form-control {
+    padding: 10px 5px;
+  }
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 10px 1.875rem;
+  transition: 0.3s ease;
+  z-index: 1058;
+  background-color: white;
+}
+@media (max-width: 1024px) {
+  .navbar.active {
+    background-color: #17a2b8;
+  }
+}
+.navbar .navbar-brand {
+  display: block;
+  width: 3.75rem;
+}
+@media (max-width: 1024px) {
+  .navbar .navbar-brand {
+    width: 3.1875rem;
+  }
+}
+@media (max-width: 425px) {
+  .navbar .navbar-brand {
+    width: 2.8125rem;
+  }
+}
+.navbar .navbar-toggler {
+  display: none;
+  width: 3.1125rem;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  transform: scale(-1, 1);
+  cursor: pointer;
+}
+.navbar .navbar-toggler .bar {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 0.3125rem;
+  background-color: #007bff;
+  border-radius: 0.625rem;
+  transition: 0.3s ease;
+}
+.navbar .navbar-toggler .bar:not(:last-child) {
+  margin-bottom: 0.1875rem;
+}
+.navbar .navbar-toggler .bar.bar-one {
+  width: 100%;
+}
+.navbar .navbar-toggler .bar.bar-two {
+  width: 75%;
+}
+.navbar .navbar-toggler .bar.bar-three {
+  width: 50%;
+}
+@media (max-width: 425px) {
+  .navbar .navbar-toggler .bar {
+    height: 0.25rem;
+  }
+}
+@media (max-width: 1024px) {
+  .navbar .navbar-toggler.active .bar {
+    background-color: #fff;
+  }
+  .navbar .navbar-toggler.active .bar:not(:last-child) {
+    margin-bottom: 0;
+  }
+  .navbar .navbar-toggler.active .bar.bar-one {
+    transform: rotate(-45deg);
+  }
+  .navbar .navbar-toggler.active .bar.bar-two {
+    width: 100%;
+    margin-top: -0.3125rem;
+    transform: rotate(45deg);
+  }
+}
+@media (max-width: 1024px) and (max-width: 425px) {
+  .navbar .navbar-toggler.active .bar.bar-two {
+    margin-top: -0.25rem;
+  }
+}
+@media (max-width: 1024px) {
+  .navbar .navbar-toggler.active .bar.bar-three {
+    display: none;
+  }
+}
+@media (max-width: 1024px) {
+  .navbar .navbar-toggler {
+    display: block;
+  }
+}
+@media (max-width: 425px) {
+  .navbar .navbar-toggler {
+    width: 2.8125rem;
+  }
+}
+@media (max-width: 1024px) {
+  .navbar .menu-wrapper.active {
+    visibility: visible;
+    left: 50%;
+  }
+}
+@media (max-width: 425px) {
+  .navbar .menu-wrapper.active {
+    left: 0;
+  }
+}
+.navbar .menu-wrapper .navbar-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style-type: none;
+}
+.navbar .menu-wrapper .navbar-nav .nav-item {
+  position: relative;
+}
+.navbar .menu-wrapper .navbar-nav .nav-item:not(:last-child) {
+  margin-right: 1.25rem;
+}
+@media (max-width: 1024px) {
+  .navbar .menu-wrapper .navbar-nav .nav-item:not(:last-child) {
+    margin-right: 0;
+  }
+}
+.navbar .menu-wrapper .navbar-nav .nav-item .nav-link {
+  display: block;
+  color: #007bff;
+  text-transform: capitalize;
+  font-weight: 600;
+  transition: 0.2s ease;
+  text-align: center;
+}
+.navbar .menu-wrapper .navbar-nav .nav-item .nav-link:hover {
+  transform: scale(1.15);
+}
+@media (max-width: 1024px) {
+  .navbar .menu-wrapper .navbar-nav .nav-item .nav-link:hover {
+    transform: unset;
+  }
+}
+@media (max-width: 1024px) {
+  .navbar .menu-wrapper .navbar-nav .nav-item .nav-link.log-in {
+    padding: 5px 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+    text-align: center;
+  }
+  .navbar .menu-wrapper .navbar-nav .nav-item .nav-link.log-in:hover {
+    background-color: rgba(255, 255, 255, 0.397);
+  }
+}
+.navbar .menu-wrapper .navbar-nav .nav-item .nav-link.log-out {
+  display: none;
+  cursor: pointer;
+}
+@media (max-width: 1024px) {
+  .navbar .menu-wrapper .navbar-nav .nav-item .nav-link.log-out {
+    display: block;
+  }
+}
+@media (max-width: 1024px) {
+  .navbar .menu-wrapper .navbar-nav .nav-item .nav-link {
+    color: #ffffff;
+  }
+}
+@media (max-width: 1024px) {
+  .navbar .menu-wrapper .navbar-nav .nav-item {
+    font-size: 1.25rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid #007bff;
+  }
+  .navbar .menu-wrapper .navbar-nav .nav-item:first-child {
+    padding-top: 0;
+  }
+}
+@media (max-width: 425px) {
+  .navbar .menu-wrapper .navbar-nav .nav-item {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 1024px) {
+  .navbar .menu-wrapper .navbar-nav {
+    flex-direction: column;
+  }
+}
+@media (max-width: 1024px) {
+  .navbar .menu-wrapper {
+    visibility: hidden;
+    width: 50%;
+    height: 100%;
+    position: fixed;
+    left: 100%;
+    padding: 1.25rem;
+    background-color: #17a2b8;
+    transition: 0.3s ease;
+    z-index: 9999;
+  }
+}
+@media (max-width: 425px) {
+  .navbar .menu-wrapper {
+    width: 100%;
+  }
+}
+.navbar .auth-menu {
+  display: flex;
+  align-items: center;
+}
+.navbar .auth-menu .item {
+  position: relative;
+}
+.navbar .auth-menu .item:not(:last-child) {
+  margin-right: 10px;
+}
+.navbar .auth-menu .item .dropdown {
+  display: none;
+  position: absolute;
+  width: 160px;
+  left: -110px;
+  top: 50px;
+  background-color: rgba(128, 128, 128, 0.164);
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 5px;
+  z-index: 9999;
+}
+.navbar .auth-menu .item .dropdown > div {
+  padding: 5px 5px;
+  border-radius: 10px;
+}
+.navbar .auth-menu .item .dropdown > div:hover {
+  background-color: rgba(128, 128, 128, 0.281);
+  cursor: pointer;
+}
+.navbar .auth-menu #spc {
+  width: 2.8125rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.navbar .auth-menu #spc img {
+  cursor: pointer;
+}
+@media (max-width: 1024px) {
+  .navbar .auth-menu #spc {
+    width: 3.1875rem;
+  }
+}
+@media (max-width: 425px) {
+  .navbar .auth-menu #spc {
+    width: 2.8125rem;
+  }
+}
+@media (max-width: 1024px) {
+  .navbar .auth-menu {
+    display: none;
+  }
+}
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 0 1.25rem;
+  }
+}
+
+#index-header .wrapper {
+  display: flex;
+  height: 100%;
+}
+#index-header .wrapper .content-box {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  flex: 0 0 50%;
+  align-items: center;
+  padding: 1.875rem;
+}
+#index-header .wrapper .content-box .inner *:not(:last-child) {
+  margin-bottom: 0.625rem;
+}
+@media (max-width: 375px) {
+  #index-header .wrapper .content-box .inner *:not(:last-child) {
+    margin-bottom: 0.9375rem;
+  }
+}
+#index-header .wrapper .content-box .inner .welcome {
+  display: block;
+  color: #007bff;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+#index-header .wrapper .content-box .inner h1 {
+  text-transform: uppercase;
+}
+#index-header .wrapper .content-box .inner h1 span {
+  color: #007bff;
+}
+@media (max-width: 425px) {
+  #index-header .wrapper .content-box .inner h1 {
+    font-size: 1.5625rem;
+  }
+}
+#index-header .wrapper .content-box .inner .blink-down-arrow {
+  display: inline-block;
+  position: absolute;
+  bottom: 0.9375rem;
+  left: 50%;
+  animation: blink_arrow 1s infinite;
+}
+#index-header .wrapper .content-box .inner .blink-down-arrow span {
+  display: inline-block;
+  content: "";
+  width: 2.4375rem;
+  height: 2.4375rem;
+  border-right: 0.3125rem solid #17a2b8;
+  border-bottom: 0.3125rem solid #17a2b8;
+  transform: rotate(45deg) translate(-50%);
+}
+@media (max-width: 768px) {
+  #index-header .wrapper .content-box .inner .blink-down-arrow span {
+    width: 1.875rem;
+    height: 1.875rem;
+  }
+}
+@media (max-width: 425px) {
+  #index-header .wrapper .content-box {
+    padding: 1.25rem;
+  }
+}
+#index-header .wrapper .img-box {
+  flex: 0 0 50%;
+}
+#index-header .wrapper .img-box .img {
+  height: 100%;
+  background: linear-gradient(to right, #007bff, #fff 50% 80%, #007bff);
+  border-radius: 48% 66% 58% 55%/50% 39% 70% 60%;
+  transition: 0.5s ease;
+}
+#index-header .wrapper .img-box .img:hover {
+  border-radius: 100% 22% 90% 63%/79% 14% 96% 100%;
+}
+#index-header .wrapper .img-box .img img {
+  height: 100%;
+}
+@media (max-width: 768px) {
+  #index-header .wrapper .img-box {
+    flex: unset;
+    display: block;
+    flex-grow: 1;
+    flex-shrink: 1;
+    height: 0;
+  }
+}
+@media (max-width: 768px) {
+  #index-header .wrapper {
+    flex-direction: column-reverse;
+  }
+}
+
+@keyframes blink_arrow {
+  0% {
+    bottom: 0.9375rem;
+  }
+  50% {
+    bottom: 1.875rem;
+  }
+  100% {
+    bottom: 0.625rem;
+  }
+}
+.sec .hp-bs h2 {
+  margin-bottom: 5px;
+}
+.sec .hp-bs .books {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+@media (max-width: 1440px) {
+  .sec .hp-bs .books {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .sec .hp-bs .books {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 425px) {
+  .sec .hp-bs .books {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  margin: 30px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 0.625rem;
+  box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
+  flex-basis: 33.33%;
+}
+.card > * {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+.card__background {
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-width: 100%;
+  height: 100%;
+}
+.card__content {
+  --flow-space: 0.9375rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: flex-end;
+  height: 100%;
+  padding: 12% 1.25rem 1.875rem;
+  background: linear-gradient(180deg, hsla(0, 0%, 0%, 0) 0%, hsla(0, 0%, 0%, 0.3) 10%, hsl(0, 0%, 0%) 100%);
+}
+.card__content--container {
+  --flow-space: 1.25rem;
+}
+.card__title {
+  position: relative;
+  width: fit-content;
+  width: -moz-fit-content; /* Prefix required for Firefox */
+  color: white;
+}
+.card__title::after {
+  content: "";
+  position: absolute;
+  height: 0.3125rem;
+  width: calc(100% + 1.25rem);
+  bottom: -0.75rem;
+  left: -1.25rem;
+  background-color: #007bff;
+}
+.card__description {
+  padding: 20px 0;
+  color: white;
+}
+.card__description > span {
+  display: block;
+}
+.card__description > span:not(:last-child) {
+  margin-bottom: 10px;
+}
+.card__button {
+  padding: 0.75em 1.6em;
+  width: fit-content;
+  width: -moz-fit-content; /* Prefix required for Firefox */
+  font-variant: small-caps;
+  font-weight: bold;
+  border-radius: 0.45em;
+  border: none;
+  background-color: #007bff;
+  font-size: 1.125rem;
+  color: white;
+}
+.card__button:focus {
+  outline: 2px solid black;
+  outline-offset: -5px;
+}
+@media (any-hover: hover) and (any-pointer: fine) {
+  .card__content {
+    transform: translateY(62%);
+    transition: transform 500ms ease-out;
+    transition-delay: 500ms;
+  }
+  .card__title::after {
+    opacity: 0;
+    transform: scaleX(0);
+    transition: opacity 1000ms ease-in, transform 500ms ease-out;
+    transition-delay: 500ms;
+    transform-origin: right;
+  }
+  .card__background {
+    transition: transform 500ms ease-in;
+  }
+  .card__content--container > :not(.card__title), .card__button {
+    opacity: 0;
+    transition: transform 500ms ease-out, opacity 500ms ease-out;
+  }
+  .card:hover, .card:focus-within {
+    transform: scale(1.05);
+    transition: transform 500ms ease-in;
+  }
+  .card:hover .card__content, .card:focus-within .card__content {
+    transform: translateY(0);
+    transition: transform 500ms ease-in;
+  }
+  .card:focus-within .card__content {
+    transition-duration: 0ms;
+  }
+  .card:hover .card__background, .card:focus-within .card__background {
+    transform: scale(1.3);
+  }
+  .card:hover .card__content--container > :not(.card__title), .card:hover .card__button, .card:focus-within .card__content--container > :not(.card__title), .card:focus-within .card__button {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+    transition-delay: 1000ms;
+  }
+  .card:hover .card__title::after, .card:focus-within .card__title::after {
+    opacity: 1;
+    transform: scaleX(1);
+    transform-origin: left;
+    transition: opacity 500ms ease-in, transform 500ms ease-in;
+    transition-delay: 500ms;
+  }
+}
+
+#hp-bs .filter #filter-books {
+  display: flex;
+  align-items: center;
+  width: -moz-max-content;
+  width: max-content;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+#hp-bs .filter #filter-books *:not(:last-child) {
+  margin-right: 5px;
+}
+#hp-bs .filter #filter-books i {
+  transition: 0.3s ease;
+}
+#hp-bs .filter #filter-books i.fa-angle-down.rotate {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease; /* Add transition for smooth rotation */
+}
+#hp-bs .filter #filter-book-checkboxes {
+  display: none;
+  font-size: 13px;
+}
+#hp-bs .filter ul.ks-cboxtags {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+  padding-top: 10px;
+  border-top: 3px solid grey;
+}
+#hp-bs .filter ul.ks-cboxtags li {
+  display: inline;
+}
+#hp-bs .filter ul.ks-cboxtags li label {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(139, 139, 139, 0.3);
+  color: #adadad;
+  border-radius: 25px;
+  white-space: nowrap;
+  margin: 3px 0px;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: all 0.2s;
+  padding: 4px 6px;
+  cursor: pointer;
+}
+#hp-bs .filter ul.ks-cboxtags li label::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 12px;
+  padding: 2px 6px 2px 2px;
+  content: "\f067";
+  transition: transform 0.3s ease-in-out;
+}
+#hp-bs .filter ul.ks-cboxtags li input[type=checkbox] {
+  position: absolute;
+  opacity: 0;
+}
+#hp-bs .filter ul.ks-cboxtags li input[type=checkbox]:focus + label {
+  border: 2px solid #e9a1ff;
+}
+#hp-bs .filter ul.ks-cboxtags li input[type=checkbox]:checked + label::before {
+  content: "\f00c";
+  transform: rotate(-360deg);
+  transition: transform 0.3s ease-in-out;
+}
+#hp-bs .filter ul.ks-cboxtags li input[type=checkbox]:checked + label {
+  border: 2px solid #1bdbf8;
+  background-color: #12bbd4;
+  color: #fff;
+  transition: all 0.2s;
+}
+
+#lsp {
+  height: 100vh;
+}
+#lsp .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+#lsp .wrapper .inner {
+  flex-basis: 30%;
+  padding: 15px;
+  border-radius: 1.875rem 1.875rem 0 0;
+  box-shadow: 0px 0px 0.375rem 2px #007bff;
+}
+#lsp .wrapper .inner > *:not(:last-child) {
+  margin-bottom: 0.9375rem;
+}
+#lsp .wrapper .inner .ls-avatar {
+  width: 7.5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+#lsp .wrapper .inner #user-register-form > h3,
+#lsp .wrapper .inner #user-log-in-form > h3 {
+  text-align: center;
+}
+#lsp .wrapper .inner #user-register-form .ls-feedback,
+#lsp .wrapper .inner #user-log-in-form .ls-feedback {
+  display: none;
+  font-size: 12px;
+  font-style: italic;
+  color: red;
+}
+#lsp .wrapper .inner #user-register-form .form-group,
+#lsp .wrapper .inner #user-log-in-form .form-group {
+  display: flex;
+  align-items: center;
+}
+#lsp .wrapper .inner #user-register-form .form-group:not(:last-child),
+#lsp .wrapper .inner #user-log-in-form .form-group:not(:last-child) {
+  margin-bottom: 0.9375rem;
+}
+#lsp .wrapper .inner #user-register-form .form-group .icon,
+#lsp .wrapper .inner #user-log-in-form .form-group .icon {
+  text-align: center;
+  background-color: #007bff;
+  padding: 10px;
+  flex-basis: 15%;
+  border: 1px solid #007bff;
+  border-radius: 30px 0px 0px 30px;
+}
+#lsp .wrapper .inner #user-register-form .form-group .form-control,
+#lsp .wrapper .inner #user-log-in-form .form-group .form-control {
+  flex-basis: 85%;
+  padding: 10px;
+  border: 1px solid #007bff;
+  border-width: 1px;
+  border-color: grey grey grey #007bff;
+  border-radius: 0px 30px 30px 0px;
+}
+#lsp .wrapper .inner #user-register-form .form-group .form-control:focus,
+#lsp .wrapper .inner #user-log-in-form .form-group .form-control:focus {
+  outline: none;
+  border-color: #007bff;
+}
+#lsp .wrapper .inner #user-register-form .form-group > button[type=submit],
+#lsp .wrapper .inner #user-log-in-form .form-group > button[type=submit] {
+  padding: 10px;
+  width: 120px;
+  border: 1px solid #007bff;
+  border-radius: 30px;
+  background-color: white;
+  transition: 0.3s ease;
+}
+#lsp .wrapper .inner #user-register-form .form-group > button[type=submit]:hover,
+#lsp .wrapper .inner #user-log-in-form .form-group > button[type=submit]:hover {
+  cursor: pointer;
+  background-color: rgba(128, 128, 128, 0.37);
+}
+#lsp .wrapper .inner #user-log-in-form > small {
+  text-align: center;
+  display: block;
+}
+#lsp .wrapper .inner #user-log-in-form > small #dha-signup {
+  text-align: center;
+  color: #007bff;
+  font-weight: 600;
+  cursor: pointer;
+}
+@media (max-width: 1440px) {
+  #lsp .wrapper .inner {
+    flex-basis: 40%;
+  }
+}
+@media (max-width: 1024px) {
+  #lsp .wrapper .inner {
+    flex-basis: 60%;
+  }
+}
+@media (max-width: 768px) {
+  #lsp .wrapper .inner {
+    flex-basis: 80%;
+  }
+}
+@media (max-width: 425px) {
+  #lsp .wrapper .inner {
+    flex-basis: 90%;
+  }
+}
+
+.container .adm-sec-cstmbg {
+  border-radius: 30px;
+  padding: 30px;
+  overflow: hidden;
+  background-color: rgba(184, 184, 184, 0.2);
+}
+.container .adm-sec-cstmbg:not(:last-child) {
+  margin-bottom: 30px;
+}
+
+#books span.title,
+#comments span.title {
+  display: block;
+  text-align: center;
+  font-size: 1.25rem;
+  text-transform: capitalize;
+}
+#books form#add-book .form-inner,
+#comments form#add-book .form-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  padding: 10px 0;
+  margin-right: -10px;
+}
+#books form#add-book .form-inner .form-group,
+#comments form#add-book .form-inner .form-group {
+  flex-basis: 14.2857142857%;
+}
+#books form#add-book .form-inner .form-group .ab-feedback,
+#comments form#add-book .form-inner .form-group .ab-feedback {
+  display: none;
+  font-style: italic;
+  font-size: 12px;
+  color: red;
+}
+#books form#add-book .form-inner .form-group .inner,
+#comments form#add-book .form-inner .form-group .inner {
+  margin-right: 10px;
+}
+#books form#add-book .form-inner .form-group .inner > *,
+#comments form#add-book .form-inner .form-group .inner > * {
+  width: 100%;
+}
+@media (max-width: 768px) {
+  #books form#add-book .form-inner .form-group,
+  #comments form#add-book .form-inner .form-group {
+    flex-basis: 50%;
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 425px) {
+  #books form#add-book .form-inner .form-group,
+  #comments form#add-book .form-inner .form-group {
+    flex-basis: 100%;
+  }
+}
+@media (max-width: 768px) {
+  #books form#add-book .form-inner,
+  #comments form#add-book .form-inner {
+    justify-content: center;
+  }
+}
+#books .all-books .table,
+#books .pending-comments .table,
+#books .approved-comments .table,
+#books .rejected-comments .table,
+#comments .all-books .table,
+#comments .pending-comments .table,
+#comments .approved-comments .table,
+#comments .rejected-comments .table {
+  height: 40vh;
+  overflow-x: auto;
+}
+#books .all-books .table #adm-all-bt,
+#books .all-books .table #adm-all-pc,
+#books .all-books .table #adm-all-ac,
+#books .all-books .table #adm-all-rc,
+#books .pending-comments .table #adm-all-bt,
+#books .pending-comments .table #adm-all-pc,
+#books .pending-comments .table #adm-all-ac,
+#books .pending-comments .table #adm-all-rc,
+#books .approved-comments .table #adm-all-bt,
+#books .approved-comments .table #adm-all-pc,
+#books .approved-comments .table #adm-all-ac,
+#books .approved-comments .table #adm-all-rc,
+#books .rejected-comments .table #adm-all-bt,
+#books .rejected-comments .table #adm-all-pc,
+#books .rejected-comments .table #adm-all-ac,
+#books .rejected-comments .table #adm-all-rc,
+#comments .all-books .table #adm-all-bt,
+#comments .all-books .table #adm-all-pc,
+#comments .all-books .table #adm-all-ac,
+#comments .all-books .table #adm-all-rc,
+#comments .pending-comments .table #adm-all-bt,
+#comments .pending-comments .table #adm-all-pc,
+#comments .pending-comments .table #adm-all-ac,
+#comments .pending-comments .table #adm-all-rc,
+#comments .approved-comments .table #adm-all-bt,
+#comments .approved-comments .table #adm-all-pc,
+#comments .approved-comments .table #adm-all-ac,
+#comments .approved-comments .table #adm-all-rc,
+#comments .rejected-comments .table #adm-all-bt,
+#comments .rejected-comments .table #adm-all-pc,
+#comments .rejected-comments .table #adm-all-ac,
+#comments .rejected-comments .table #adm-all-rc {
+  width: 100%;
+  border-collapse: collapse;
+  overflow-x: auto;
+}
+#books .all-books .table #adm-all-bt thead,
+#books .all-books .table #adm-all-pc thead,
+#books .all-books .table #adm-all-ac thead,
+#books .all-books .table #adm-all-rc thead,
+#books .pending-comments .table #adm-all-bt thead,
+#books .pending-comments .table #adm-all-pc thead,
+#books .pending-comments .table #adm-all-ac thead,
+#books .pending-comments .table #adm-all-rc thead,
+#books .approved-comments .table #adm-all-bt thead,
+#books .approved-comments .table #adm-all-pc thead,
+#books .approved-comments .table #adm-all-ac thead,
+#books .approved-comments .table #adm-all-rc thead,
+#books .rejected-comments .table #adm-all-bt thead,
+#books .rejected-comments .table #adm-all-pc thead,
+#books .rejected-comments .table #adm-all-ac thead,
+#books .rejected-comments .table #adm-all-rc thead,
+#comments .all-books .table #adm-all-bt thead,
+#comments .all-books .table #adm-all-pc thead,
+#comments .all-books .table #adm-all-ac thead,
+#comments .all-books .table #adm-all-rc thead,
+#comments .pending-comments .table #adm-all-bt thead,
+#comments .pending-comments .table #adm-all-pc thead,
+#comments .pending-comments .table #adm-all-ac thead,
+#comments .pending-comments .table #adm-all-rc thead,
+#comments .approved-comments .table #adm-all-bt thead,
+#comments .approved-comments .table #adm-all-pc thead,
+#comments .approved-comments .table #adm-all-ac thead,
+#comments .approved-comments .table #adm-all-rc thead,
+#comments .rejected-comments .table #adm-all-bt thead,
+#comments .rejected-comments .table #adm-all-pc thead,
+#comments .rejected-comments .table #adm-all-ac thead,
+#comments .rejected-comments .table #adm-all-rc thead {
+  text-align: left;
+}
+#books .all-books .table #adm-all-bt tbody tr:nth-child(2n+1),
+#books .all-books .table #adm-all-pc tbody tr:nth-child(2n+1),
+#books .all-books .table #adm-all-ac tbody tr:nth-child(2n+1),
+#books .all-books .table #adm-all-rc tbody tr:nth-child(2n+1),
+#books .pending-comments .table #adm-all-bt tbody tr:nth-child(2n+1),
+#books .pending-comments .table #adm-all-pc tbody tr:nth-child(2n+1),
+#books .pending-comments .table #adm-all-ac tbody tr:nth-child(2n+1),
+#books .pending-comments .table #adm-all-rc tbody tr:nth-child(2n+1),
+#books .approved-comments .table #adm-all-bt tbody tr:nth-child(2n+1),
+#books .approved-comments .table #adm-all-pc tbody tr:nth-child(2n+1),
+#books .approved-comments .table #adm-all-ac tbody tr:nth-child(2n+1),
+#books .approved-comments .table #adm-all-rc tbody tr:nth-child(2n+1),
+#books .rejected-comments .table #adm-all-bt tbody tr:nth-child(2n+1),
+#books .rejected-comments .table #adm-all-pc tbody tr:nth-child(2n+1),
+#books .rejected-comments .table #adm-all-ac tbody tr:nth-child(2n+1),
+#books .rejected-comments .table #adm-all-rc tbody tr:nth-child(2n+1),
+#comments .all-books .table #adm-all-bt tbody tr:nth-child(2n+1),
+#comments .all-books .table #adm-all-pc tbody tr:nth-child(2n+1),
+#comments .all-books .table #adm-all-ac tbody tr:nth-child(2n+1),
+#comments .all-books .table #adm-all-rc tbody tr:nth-child(2n+1),
+#comments .pending-comments .table #adm-all-bt tbody tr:nth-child(2n+1),
+#comments .pending-comments .table #adm-all-pc tbody tr:nth-child(2n+1),
+#comments .pending-comments .table #adm-all-ac tbody tr:nth-child(2n+1),
+#comments .pending-comments .table #adm-all-rc tbody tr:nth-child(2n+1),
+#comments .approved-comments .table #adm-all-bt tbody tr:nth-child(2n+1),
+#comments .approved-comments .table #adm-all-pc tbody tr:nth-child(2n+1),
+#comments .approved-comments .table #adm-all-ac tbody tr:nth-child(2n+1),
+#comments .approved-comments .table #adm-all-rc tbody tr:nth-child(2n+1),
+#comments .rejected-comments .table #adm-all-bt tbody tr:nth-child(2n+1),
+#comments .rejected-comments .table #adm-all-pc tbody tr:nth-child(2n+1),
+#comments .rejected-comments .table #adm-all-ac tbody tr:nth-child(2n+1),
+#comments .rejected-comments .table #adm-all-rc tbody tr:nth-child(2n+1) {
+  background-color: #007bff;
+}
+#books .all-books .table #adm-all-bt tr,
+#books .all-books .table #adm-all-pc tr,
+#books .all-books .table #adm-all-ac tr,
+#books .all-books .table #adm-all-rc tr,
+#books .pending-comments .table #adm-all-bt tr,
+#books .pending-comments .table #adm-all-pc tr,
+#books .pending-comments .table #adm-all-ac tr,
+#books .pending-comments .table #adm-all-rc tr,
+#books .approved-comments .table #adm-all-bt tr,
+#books .approved-comments .table #adm-all-pc tr,
+#books .approved-comments .table #adm-all-ac tr,
+#books .approved-comments .table #adm-all-rc tr,
+#books .rejected-comments .table #adm-all-bt tr,
+#books .rejected-comments .table #adm-all-pc tr,
+#books .rejected-comments .table #adm-all-ac tr,
+#books .rejected-comments .table #adm-all-rc tr,
+#comments .all-books .table #adm-all-bt tr,
+#comments .all-books .table #adm-all-pc tr,
+#comments .all-books .table #adm-all-ac tr,
+#comments .all-books .table #adm-all-rc tr,
+#comments .pending-comments .table #adm-all-bt tr,
+#comments .pending-comments .table #adm-all-pc tr,
+#comments .pending-comments .table #adm-all-ac tr,
+#comments .pending-comments .table #adm-all-rc tr,
+#comments .approved-comments .table #adm-all-bt tr,
+#comments .approved-comments .table #adm-all-pc tr,
+#comments .approved-comments .table #adm-all-ac tr,
+#comments .approved-comments .table #adm-all-rc tr,
+#comments .rejected-comments .table #adm-all-bt tr,
+#comments .rejected-comments .table #adm-all-pc tr,
+#comments .rejected-comments .table #adm-all-ac tr,
+#comments .rejected-comments .table #adm-all-rc tr {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.432);
+}
+#books .all-books .table #adm-all-bt td > span.action,
+#books .all-books .table #adm-all-pc td > span.action,
+#books .all-books .table #adm-all-ac td > span.action,
+#books .all-books .table #adm-all-rc td > span.action,
+#books .pending-comments .table #adm-all-bt td > span.action,
+#books .pending-comments .table #adm-all-pc td > span.action,
+#books .pending-comments .table #adm-all-ac td > span.action,
+#books .pending-comments .table #adm-all-rc td > span.action,
+#books .approved-comments .table #adm-all-bt td > span.action,
+#books .approved-comments .table #adm-all-pc td > span.action,
+#books .approved-comments .table #adm-all-ac td > span.action,
+#books .approved-comments .table #adm-all-rc td > span.action,
+#books .rejected-comments .table #adm-all-bt td > span.action,
+#books .rejected-comments .table #adm-all-pc td > span.action,
+#books .rejected-comments .table #adm-all-ac td > span.action,
+#books .rejected-comments .table #adm-all-rc td > span.action,
+#comments .all-books .table #adm-all-bt td > span.action,
+#comments .all-books .table #adm-all-pc td > span.action,
+#comments .all-books .table #adm-all-ac td > span.action,
+#comments .all-books .table #adm-all-rc td > span.action,
+#comments .pending-comments .table #adm-all-bt td > span.action,
+#comments .pending-comments .table #adm-all-pc td > span.action,
+#comments .pending-comments .table #adm-all-ac td > span.action,
+#comments .pending-comments .table #adm-all-rc td > span.action,
+#comments .approved-comments .table #adm-all-bt td > span.action,
+#comments .approved-comments .table #adm-all-pc td > span.action,
+#comments .approved-comments .table #adm-all-ac td > span.action,
+#comments .approved-comments .table #adm-all-rc td > span.action,
+#comments .rejected-comments .table #adm-all-bt td > span.action,
+#comments .rejected-comments .table #adm-all-pc td > span.action,
+#comments .rejected-comments .table #adm-all-ac td > span.action,
+#comments .rejected-comments .table #adm-all-rc td > span.action {
+  cursor: pointer;
+}
+#books .all-books .table #adm-all-bt td > span.action .fa-trash,
+#books .all-books .table #adm-all-bt td > span.action .fa-xmark,
+#books .all-books .table #adm-all-pc td > span.action .fa-trash,
+#books .all-books .table #adm-all-pc td > span.action .fa-xmark,
+#books .all-books .table #adm-all-ac td > span.action .fa-trash,
+#books .all-books .table #adm-all-ac td > span.action .fa-xmark,
+#books .all-books .table #adm-all-rc td > span.action .fa-trash,
+#books .all-books .table #adm-all-rc td > span.action .fa-xmark,
+#books .pending-comments .table #adm-all-bt td > span.action .fa-trash,
+#books .pending-comments .table #adm-all-bt td > span.action .fa-xmark,
+#books .pending-comments .table #adm-all-pc td > span.action .fa-trash,
+#books .pending-comments .table #adm-all-pc td > span.action .fa-xmark,
+#books .pending-comments .table #adm-all-ac td > span.action .fa-trash,
+#books .pending-comments .table #adm-all-ac td > span.action .fa-xmark,
+#books .pending-comments .table #adm-all-rc td > span.action .fa-trash,
+#books .pending-comments .table #adm-all-rc td > span.action .fa-xmark,
+#books .approved-comments .table #adm-all-bt td > span.action .fa-trash,
+#books .approved-comments .table #adm-all-bt td > span.action .fa-xmark,
+#books .approved-comments .table #adm-all-pc td > span.action .fa-trash,
+#books .approved-comments .table #adm-all-pc td > span.action .fa-xmark,
+#books .approved-comments .table #adm-all-ac td > span.action .fa-trash,
+#books .approved-comments .table #adm-all-ac td > span.action .fa-xmark,
+#books .approved-comments .table #adm-all-rc td > span.action .fa-trash,
+#books .approved-comments .table #adm-all-rc td > span.action .fa-xmark,
+#books .rejected-comments .table #adm-all-bt td > span.action .fa-trash,
+#books .rejected-comments .table #adm-all-bt td > span.action .fa-xmark,
+#books .rejected-comments .table #adm-all-pc td > span.action .fa-trash,
+#books .rejected-comments .table #adm-all-pc td > span.action .fa-xmark,
+#books .rejected-comments .table #adm-all-ac td > span.action .fa-trash,
+#books .rejected-comments .table #adm-all-ac td > span.action .fa-xmark,
+#books .rejected-comments .table #adm-all-rc td > span.action .fa-trash,
+#books .rejected-comments .table #adm-all-rc td > span.action .fa-xmark,
+#comments .all-books .table #adm-all-bt td > span.action .fa-trash,
+#comments .all-books .table #adm-all-bt td > span.action .fa-xmark,
+#comments .all-books .table #adm-all-pc td > span.action .fa-trash,
+#comments .all-books .table #adm-all-pc td > span.action .fa-xmark,
+#comments .all-books .table #adm-all-ac td > span.action .fa-trash,
+#comments .all-books .table #adm-all-ac td > span.action .fa-xmark,
+#comments .all-books .table #adm-all-rc td > span.action .fa-trash,
+#comments .all-books .table #adm-all-rc td > span.action .fa-xmark,
+#comments .pending-comments .table #adm-all-bt td > span.action .fa-trash,
+#comments .pending-comments .table #adm-all-bt td > span.action .fa-xmark,
+#comments .pending-comments .table #adm-all-pc td > span.action .fa-trash,
+#comments .pending-comments .table #adm-all-pc td > span.action .fa-xmark,
+#comments .pending-comments .table #adm-all-ac td > span.action .fa-trash,
+#comments .pending-comments .table #adm-all-ac td > span.action .fa-xmark,
+#comments .pending-comments .table #adm-all-rc td > span.action .fa-trash,
+#comments .pending-comments .table #adm-all-rc td > span.action .fa-xmark,
+#comments .approved-comments .table #adm-all-bt td > span.action .fa-trash,
+#comments .approved-comments .table #adm-all-bt td > span.action .fa-xmark,
+#comments .approved-comments .table #adm-all-pc td > span.action .fa-trash,
+#comments .approved-comments .table #adm-all-pc td > span.action .fa-xmark,
+#comments .approved-comments .table #adm-all-ac td > span.action .fa-trash,
+#comments .approved-comments .table #adm-all-ac td > span.action .fa-xmark,
+#comments .approved-comments .table #adm-all-rc td > span.action .fa-trash,
+#comments .approved-comments .table #adm-all-rc td > span.action .fa-xmark,
+#comments .rejected-comments .table #adm-all-bt td > span.action .fa-trash,
+#comments .rejected-comments .table #adm-all-bt td > span.action .fa-xmark,
+#comments .rejected-comments .table #adm-all-pc td > span.action .fa-trash,
+#comments .rejected-comments .table #adm-all-pc td > span.action .fa-xmark,
+#comments .rejected-comments .table #adm-all-ac td > span.action .fa-trash,
+#comments .rejected-comments .table #adm-all-ac td > span.action .fa-xmark,
+#comments .rejected-comments .table #adm-all-rc td > span.action .fa-trash,
+#comments .rejected-comments .table #adm-all-rc td > span.action .fa-xmark {
+  color: rgb(252, 34, 34);
+}
+#books .all-books .table #adm-all-bt td > span.action .fa-pen-to-square,
+#books .all-books .table #adm-all-bt td > span.action .fa-check,
+#books .all-books .table #adm-all-pc td > span.action .fa-pen-to-square,
+#books .all-books .table #adm-all-pc td > span.action .fa-check,
+#books .all-books .table #adm-all-ac td > span.action .fa-pen-to-square,
+#books .all-books .table #adm-all-ac td > span.action .fa-check,
+#books .all-books .table #adm-all-rc td > span.action .fa-pen-to-square,
+#books .all-books .table #adm-all-rc td > span.action .fa-check,
+#books .pending-comments .table #adm-all-bt td > span.action .fa-pen-to-square,
+#books .pending-comments .table #adm-all-bt td > span.action .fa-check,
+#books .pending-comments .table #adm-all-pc td > span.action .fa-pen-to-square,
+#books .pending-comments .table #adm-all-pc td > span.action .fa-check,
+#books .pending-comments .table #adm-all-ac td > span.action .fa-pen-to-square,
+#books .pending-comments .table #adm-all-ac td > span.action .fa-check,
+#books .pending-comments .table #adm-all-rc td > span.action .fa-pen-to-square,
+#books .pending-comments .table #adm-all-rc td > span.action .fa-check,
+#books .approved-comments .table #adm-all-bt td > span.action .fa-pen-to-square,
+#books .approved-comments .table #adm-all-bt td > span.action .fa-check,
+#books .approved-comments .table #adm-all-pc td > span.action .fa-pen-to-square,
+#books .approved-comments .table #adm-all-pc td > span.action .fa-check,
+#books .approved-comments .table #adm-all-ac td > span.action .fa-pen-to-square,
+#books .approved-comments .table #adm-all-ac td > span.action .fa-check,
+#books .approved-comments .table #adm-all-rc td > span.action .fa-pen-to-square,
+#books .approved-comments .table #adm-all-rc td > span.action .fa-check,
+#books .rejected-comments .table #adm-all-bt td > span.action .fa-pen-to-square,
+#books .rejected-comments .table #adm-all-bt td > span.action .fa-check,
+#books .rejected-comments .table #adm-all-pc td > span.action .fa-pen-to-square,
+#books .rejected-comments .table #adm-all-pc td > span.action .fa-check,
+#books .rejected-comments .table #adm-all-ac td > span.action .fa-pen-to-square,
+#books .rejected-comments .table #adm-all-ac td > span.action .fa-check,
+#books .rejected-comments .table #adm-all-rc td > span.action .fa-pen-to-square,
+#books .rejected-comments .table #adm-all-rc td > span.action .fa-check,
+#comments .all-books .table #adm-all-bt td > span.action .fa-pen-to-square,
+#comments .all-books .table #adm-all-bt td > span.action .fa-check,
+#comments .all-books .table #adm-all-pc td > span.action .fa-pen-to-square,
+#comments .all-books .table #adm-all-pc td > span.action .fa-check,
+#comments .all-books .table #adm-all-ac td > span.action .fa-pen-to-square,
+#comments .all-books .table #adm-all-ac td > span.action .fa-check,
+#comments .all-books .table #adm-all-rc td > span.action .fa-pen-to-square,
+#comments .all-books .table #adm-all-rc td > span.action .fa-check,
+#comments .pending-comments .table #adm-all-bt td > span.action .fa-pen-to-square,
+#comments .pending-comments .table #adm-all-bt td > span.action .fa-check,
+#comments .pending-comments .table #adm-all-pc td > span.action .fa-pen-to-square,
+#comments .pending-comments .table #adm-all-pc td > span.action .fa-check,
+#comments .pending-comments .table #adm-all-ac td > span.action .fa-pen-to-square,
+#comments .pending-comments .table #adm-all-ac td > span.action .fa-check,
+#comments .pending-comments .table #adm-all-rc td > span.action .fa-pen-to-square,
+#comments .pending-comments .table #adm-all-rc td > span.action .fa-check,
+#comments .approved-comments .table #adm-all-bt td > span.action .fa-pen-to-square,
+#comments .approved-comments .table #adm-all-bt td > span.action .fa-check,
+#comments .approved-comments .table #adm-all-pc td > span.action .fa-pen-to-square,
+#comments .approved-comments .table #adm-all-pc td > span.action .fa-check,
+#comments .approved-comments .table #adm-all-ac td > span.action .fa-pen-to-square,
+#comments .approved-comments .table #adm-all-ac td > span.action .fa-check,
+#comments .approved-comments .table #adm-all-rc td > span.action .fa-pen-to-square,
+#comments .approved-comments .table #adm-all-rc td > span.action .fa-check,
+#comments .rejected-comments .table #adm-all-bt td > span.action .fa-pen-to-square,
+#comments .rejected-comments .table #adm-all-bt td > span.action .fa-check,
+#comments .rejected-comments .table #adm-all-pc td > span.action .fa-pen-to-square,
+#comments .rejected-comments .table #adm-all-pc td > span.action .fa-check,
+#comments .rejected-comments .table #adm-all-ac td > span.action .fa-pen-to-square,
+#comments .rejected-comments .table #adm-all-ac td > span.action .fa-check,
+#comments .rejected-comments .table #adm-all-rc td > span.action .fa-pen-to-square,
+#comments .rejected-comments .table #adm-all-rc td > span.action .fa-check {
+  color: limegreen;
+}
+#books .all-books .table #adm-all-bt td > span.action:not(:last-child),
+#books .all-books .table #adm-all-pc td > span.action:not(:last-child),
+#books .all-books .table #adm-all-ac td > span.action:not(:last-child),
+#books .all-books .table #adm-all-rc td > span.action:not(:last-child),
+#books .pending-comments .table #adm-all-bt td > span.action:not(:last-child),
+#books .pending-comments .table #adm-all-pc td > span.action:not(:last-child),
+#books .pending-comments .table #adm-all-ac td > span.action:not(:last-child),
+#books .pending-comments .table #adm-all-rc td > span.action:not(:last-child),
+#books .approved-comments .table #adm-all-bt td > span.action:not(:last-child),
+#books .approved-comments .table #adm-all-pc td > span.action:not(:last-child),
+#books .approved-comments .table #adm-all-ac td > span.action:not(:last-child),
+#books .approved-comments .table #adm-all-rc td > span.action:not(:last-child),
+#books .rejected-comments .table #adm-all-bt td > span.action:not(:last-child),
+#books .rejected-comments .table #adm-all-pc td > span.action:not(:last-child),
+#books .rejected-comments .table #adm-all-ac td > span.action:not(:last-child),
+#books .rejected-comments .table #adm-all-rc td > span.action:not(:last-child),
+#comments .all-books .table #adm-all-bt td > span.action:not(:last-child),
+#comments .all-books .table #adm-all-pc td > span.action:not(:last-child),
+#comments .all-books .table #adm-all-ac td > span.action:not(:last-child),
+#comments .all-books .table #adm-all-rc td > span.action:not(:last-child),
+#comments .pending-comments .table #adm-all-bt td > span.action:not(:last-child),
+#comments .pending-comments .table #adm-all-pc td > span.action:not(:last-child),
+#comments .pending-comments .table #adm-all-ac td > span.action:not(:last-child),
+#comments .pending-comments .table #adm-all-rc td > span.action:not(:last-child),
+#comments .approved-comments .table #adm-all-bt td > span.action:not(:last-child),
+#comments .approved-comments .table #adm-all-pc td > span.action:not(:last-child),
+#comments .approved-comments .table #adm-all-ac td > span.action:not(:last-child),
+#comments .approved-comments .table #adm-all-rc td > span.action:not(:last-child),
+#comments .rejected-comments .table #adm-all-bt td > span.action:not(:last-child),
+#comments .rejected-comments .table #adm-all-pc td > span.action:not(:last-child),
+#comments .rejected-comments .table #adm-all-ac td > span.action:not(:last-child),
+#comments .rejected-comments .table #adm-all-rc td > span.action:not(:last-child) {
+  margin-right: 10px;
+}
+#books .all-books .table #adm-all-bt th,
+#books .all-books .table #adm-all-bt td,
+#books .all-books .table #adm-all-pc th,
+#books .all-books .table #adm-all-pc td,
+#books .all-books .table #adm-all-ac th,
+#books .all-books .table #adm-all-ac td,
+#books .all-books .table #adm-all-rc th,
+#books .all-books .table #adm-all-rc td,
+#books .pending-comments .table #adm-all-bt th,
+#books .pending-comments .table #adm-all-bt td,
+#books .pending-comments .table #adm-all-pc th,
+#books .pending-comments .table #adm-all-pc td,
+#books .pending-comments .table #adm-all-ac th,
+#books .pending-comments .table #adm-all-ac td,
+#books .pending-comments .table #adm-all-rc th,
+#books .pending-comments .table #adm-all-rc td,
+#books .approved-comments .table #adm-all-bt th,
+#books .approved-comments .table #adm-all-bt td,
+#books .approved-comments .table #adm-all-pc th,
+#books .approved-comments .table #adm-all-pc td,
+#books .approved-comments .table #adm-all-ac th,
+#books .approved-comments .table #adm-all-ac td,
+#books .approved-comments .table #adm-all-rc th,
+#books .approved-comments .table #adm-all-rc td,
+#books .rejected-comments .table #adm-all-bt th,
+#books .rejected-comments .table #adm-all-bt td,
+#books .rejected-comments .table #adm-all-pc th,
+#books .rejected-comments .table #adm-all-pc td,
+#books .rejected-comments .table #adm-all-ac th,
+#books .rejected-comments .table #adm-all-ac td,
+#books .rejected-comments .table #adm-all-rc th,
+#books .rejected-comments .table #adm-all-rc td,
+#comments .all-books .table #adm-all-bt th,
+#comments .all-books .table #adm-all-bt td,
+#comments .all-books .table #adm-all-pc th,
+#comments .all-books .table #adm-all-pc td,
+#comments .all-books .table #adm-all-ac th,
+#comments .all-books .table #adm-all-ac td,
+#comments .all-books .table #adm-all-rc th,
+#comments .all-books .table #adm-all-rc td,
+#comments .pending-comments .table #adm-all-bt th,
+#comments .pending-comments .table #adm-all-bt td,
+#comments .pending-comments .table #adm-all-pc th,
+#comments .pending-comments .table #adm-all-pc td,
+#comments .pending-comments .table #adm-all-ac th,
+#comments .pending-comments .table #adm-all-ac td,
+#comments .pending-comments .table #adm-all-rc th,
+#comments .pending-comments .table #adm-all-rc td,
+#comments .approved-comments .table #adm-all-bt th,
+#comments .approved-comments .table #adm-all-bt td,
+#comments .approved-comments .table #adm-all-pc th,
+#comments .approved-comments .table #adm-all-pc td,
+#comments .approved-comments .table #adm-all-ac th,
+#comments .approved-comments .table #adm-all-ac td,
+#comments .approved-comments .table #adm-all-rc th,
+#comments .approved-comments .table #adm-all-rc td,
+#comments .rejected-comments .table #adm-all-bt th,
+#comments .rejected-comments .table #adm-all-bt td,
+#comments .rejected-comments .table #adm-all-pc th,
+#comments .rejected-comments .table #adm-all-pc td,
+#comments .rejected-comments .table #adm-all-ac th,
+#comments .rejected-comments .table #adm-all-ac td,
+#comments .rejected-comments .table #adm-all-rc th,
+#comments .rejected-comments .table #adm-all-rc td {
+  padding: 10px 20px;
+}
+
+#authors > .inner,
+#categories > .inner {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -30px;
+}
+#authors > .inner > *:not(:last-child),
+#categories > .inner > *:not(:last-child) {
+  margin-bottom: 20px;
+}
+#authors > .inner .add-author,
+#authors > .inner .add-category,
+#categories > .inner .add-author,
+#categories > .inner .add-category {
+  flex-basis: 30%;
+}
+#authors > .inner .add-author > .inner,
+#authors > .inner .add-category > .inner,
+#categories > .inner .add-author > .inner,
+#categories > .inner .add-category > .inner {
+  margin-right: 30px;
+}
+#authors > .inner .add-author > .inner > *:not(:last-child),
+#authors > .inner .add-category > .inner > *:not(:last-child),
+#categories > .inner .add-author > .inner > *:not(:last-child),
+#categories > .inner .add-category > .inner > *:not(:last-child) {
+  margin-bottom: 10px;
+}
+#authors > .inner .add-author > .inner > span.title,
+#authors > .inner .add-category > .inner > span.title,
+#categories > .inner .add-author > .inner > span.title,
+#categories > .inner .add-category > .inner > span.title {
+  display: block;
+  text-align: center;
+}
+#authors > .inner .add-author > .inner form#add-author-form .form-group:not(:last-child), #authors > .inner .add-author > .inner form#add-category-form .form-group:not(:last-child),
+#authors > .inner .add-category > .inner form#add-author-form .form-group:not(:last-child),
+#authors > .inner .add-category > .inner form#add-category-form .form-group:not(:last-child),
+#categories > .inner .add-author > .inner form#add-author-form .form-group:not(:last-child),
+#categories > .inner .add-author > .inner form#add-category-form .form-group:not(:last-child),
+#categories > .inner .add-category > .inner form#add-author-form .form-group:not(:last-child),
+#categories > .inner .add-category > .inner form#add-category-form .form-group:not(:last-child) {
+  margin-bottom: 10px;
+}
+#authors > .inner .add-author > .inner form#add-author-form .form-group .ab-feedback, #authors > .inner .add-author > .inner form#add-category-form .form-group .ab-feedback,
+#authors > .inner .add-category > .inner form#add-author-form .form-group .ab-feedback,
+#authors > .inner .add-category > .inner form#add-category-form .form-group .ab-feedback,
+#categories > .inner .add-author > .inner form#add-author-form .form-group .ab-feedback,
+#categories > .inner .add-author > .inner form#add-category-form .form-group .ab-feedback,
+#categories > .inner .add-category > .inner form#add-author-form .form-group .ab-feedback,
+#categories > .inner .add-category > .inner form#add-category-form .form-group .ab-feedback {
+  display: none;
+  font-style: italic;
+  font-size: 12px;
+  color: red;
+}
+@media (max-width: 768px) {
+  #authors > .inner .add-author > .inner,
+  #authors > .inner .add-category > .inner,
+  #categories > .inner .add-author > .inner,
+  #categories > .inner .add-category > .inner {
+    margin-right: 0;
+  }
+}
+@media (max-width: 768px) {
+  #authors > .inner .add-author,
+  #authors > .inner .add-category,
+  #categories > .inner .add-author,
+  #categories > .inner .add-category {
+    flex-basis: 100%;
+  }
+}
+#authors > .inner .all-authors,
+#authors > .inner .all-categories,
+#categories > .inner .all-authors,
+#categories > .inner .all-categories {
+  flex-basis: 70%;
+  overflow: hidden;
+}
+#authors > .inner .all-authors > .inner,
+#authors > .inner .all-categories > .inner,
+#categories > .inner .all-authors > .inner,
+#categories > .inner .all-categories > .inner {
+  margin-right: 30px;
+}
+#authors > .inner .all-authors > .inner > *:not(:last-child),
+#authors > .inner .all-categories > .inner > *:not(:last-child),
+#categories > .inner .all-authors > .inner > *:not(:last-child),
+#categories > .inner .all-categories > .inner > *:not(:last-child) {
+  margin-bottom: 10px;
+}
+#authors > .inner .all-authors > .inner > span.title,
+#authors > .inner .all-categories > .inner > span.title,
+#categories > .inner .all-authors > .inner > span.title,
+#categories > .inner .all-categories > .inner > span.title {
+  display: block;
+  text-align: center;
+}
+#authors > .inner .all-authors > .inner .table,
+#authors > .inner .all-categories > .inner .table,
+#categories > .inner .all-authors > .inner .table,
+#categories > .inner .all-categories > .inner .table {
+  height: 60vh;
+  overflow-x: auto;
+}
+#authors > .inner .all-authors > .inner .table #adm-all-at,
+#authors > .inner .all-authors > .inner .table #adm-all-ct,
+#authors > .inner .all-categories > .inner .table #adm-all-at,
+#authors > .inner .all-categories > .inner .table #adm-all-ct,
+#categories > .inner .all-authors > .inner .table #adm-all-at,
+#categories > .inner .all-authors > .inner .table #adm-all-ct,
+#categories > .inner .all-categories > .inner .table #adm-all-at,
+#categories > .inner .all-categories > .inner .table #adm-all-ct {
+  width: 100%;
+  border-collapse: collapse;
+  overflow-x: auto;
+}
+#authors > .inner .all-authors > .inner .table #adm-all-at thead,
+#authors > .inner .all-authors > .inner .table #adm-all-ct thead,
+#authors > .inner .all-categories > .inner .table #adm-all-at thead,
+#authors > .inner .all-categories > .inner .table #adm-all-ct thead,
+#categories > .inner .all-authors > .inner .table #adm-all-at thead,
+#categories > .inner .all-authors > .inner .table #adm-all-ct thead,
+#categories > .inner .all-categories > .inner .table #adm-all-at thead,
+#categories > .inner .all-categories > .inner .table #adm-all-ct thead {
+  text-align: left;
+}
+#authors > .inner .all-authors > .inner .table #adm-all-at tbody tr:nth-child(2n+1),
+#authors > .inner .all-authors > .inner .table #adm-all-ct tbody tr:nth-child(2n+1),
+#authors > .inner .all-categories > .inner .table #adm-all-at tbody tr:nth-child(2n+1),
+#authors > .inner .all-categories > .inner .table #adm-all-ct tbody tr:nth-child(2n+1),
+#categories > .inner .all-authors > .inner .table #adm-all-at tbody tr:nth-child(2n+1),
+#categories > .inner .all-authors > .inner .table #adm-all-ct tbody tr:nth-child(2n+1),
+#categories > .inner .all-categories > .inner .table #adm-all-at tbody tr:nth-child(2n+1),
+#categories > .inner .all-categories > .inner .table #adm-all-ct tbody tr:nth-child(2n+1) {
+  background-color: #007bff;
+}
+#authors > .inner .all-authors > .inner .table #adm-all-at tr,
+#authors > .inner .all-authors > .inner .table #adm-all-ct tr,
+#authors > .inner .all-categories > .inner .table #adm-all-at tr,
+#authors > .inner .all-categories > .inner .table #adm-all-ct tr,
+#categories > .inner .all-authors > .inner .table #adm-all-at tr,
+#categories > .inner .all-authors > .inner .table #adm-all-ct tr,
+#categories > .inner .all-categories > .inner .table #adm-all-at tr,
+#categories > .inner .all-categories > .inner .table #adm-all-ct tr {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.432);
+}
+#authors > .inner .all-authors > .inner .table #adm-all-at td > span.action,
+#authors > .inner .all-authors > .inner .table #adm-all-ct td > span.action,
+#authors > .inner .all-categories > .inner .table #adm-all-at td > span.action,
+#authors > .inner .all-categories > .inner .table #adm-all-ct td > span.action,
+#categories > .inner .all-authors > .inner .table #adm-all-at td > span.action,
+#categories > .inner .all-authors > .inner .table #adm-all-ct td > span.action,
+#categories > .inner .all-categories > .inner .table #adm-all-at td > span.action,
+#categories > .inner .all-categories > .inner .table #adm-all-ct td > span.action {
+  cursor: pointer;
+}
+#authors > .inner .all-authors > .inner .table #adm-all-at td > span.action .fa-trash,
+#authors > .inner .all-authors > .inner .table #adm-all-ct td > span.action .fa-trash,
+#authors > .inner .all-categories > .inner .table #adm-all-at td > span.action .fa-trash,
+#authors > .inner .all-categories > .inner .table #adm-all-ct td > span.action .fa-trash,
+#categories > .inner .all-authors > .inner .table #adm-all-at td > span.action .fa-trash,
+#categories > .inner .all-authors > .inner .table #adm-all-ct td > span.action .fa-trash,
+#categories > .inner .all-categories > .inner .table #adm-all-at td > span.action .fa-trash,
+#categories > .inner .all-categories > .inner .table #adm-all-ct td > span.action .fa-trash {
+  color: rgb(252, 34, 34);
+}
+#authors > .inner .all-authors > .inner .table #adm-all-at td > span.action .fa-pen-to-square,
+#authors > .inner .all-authors > .inner .table #adm-all-ct td > span.action .fa-pen-to-square,
+#authors > .inner .all-categories > .inner .table #adm-all-at td > span.action .fa-pen-to-square,
+#authors > .inner .all-categories > .inner .table #adm-all-ct td > span.action .fa-pen-to-square,
+#categories > .inner .all-authors > .inner .table #adm-all-at td > span.action .fa-pen-to-square,
+#categories > .inner .all-authors > .inner .table #adm-all-ct td > span.action .fa-pen-to-square,
+#categories > .inner .all-categories > .inner .table #adm-all-at td > span.action .fa-pen-to-square,
+#categories > .inner .all-categories > .inner .table #adm-all-ct td > span.action .fa-pen-to-square {
+  color: limegreen;
+}
+#authors > .inner .all-authors > .inner .table #adm-all-at td > span.action:not(:last-child),
+#authors > .inner .all-authors > .inner .table #adm-all-ct td > span.action:not(:last-child),
+#authors > .inner .all-categories > .inner .table #adm-all-at td > span.action:not(:last-child),
+#authors > .inner .all-categories > .inner .table #adm-all-ct td > span.action:not(:last-child),
+#categories > .inner .all-authors > .inner .table #adm-all-at td > span.action:not(:last-child),
+#categories > .inner .all-authors > .inner .table #adm-all-ct td > span.action:not(:last-child),
+#categories > .inner .all-categories > .inner .table #adm-all-at td > span.action:not(:last-child),
+#categories > .inner .all-categories > .inner .table #adm-all-ct td > span.action:not(:last-child) {
+  margin-right: 10px;
+}
+#authors > .inner .all-authors > .inner .table #adm-all-at th,
+#authors > .inner .all-authors > .inner .table #adm-all-at td,
+#authors > .inner .all-authors > .inner .table #adm-all-ct th,
+#authors > .inner .all-authors > .inner .table #adm-all-ct td,
+#authors > .inner .all-categories > .inner .table #adm-all-at th,
+#authors > .inner .all-categories > .inner .table #adm-all-at td,
+#authors > .inner .all-categories > .inner .table #adm-all-ct th,
+#authors > .inner .all-categories > .inner .table #adm-all-ct td,
+#categories > .inner .all-authors > .inner .table #adm-all-at th,
+#categories > .inner .all-authors > .inner .table #adm-all-at td,
+#categories > .inner .all-authors > .inner .table #adm-all-ct th,
+#categories > .inner .all-authors > .inner .table #adm-all-ct td,
+#categories > .inner .all-categories > .inner .table #adm-all-at th,
+#categories > .inner .all-categories > .inner .table #adm-all-at td,
+#categories > .inner .all-categories > .inner .table #adm-all-ct th,
+#categories > .inner .all-categories > .inner .table #adm-all-ct td {
+  padding: 10px 20px;
+}
+@media (max-width: 768px) {
+  #authors > .inner .all-authors > .inner,
+  #authors > .inner .all-categories > .inner,
+  #categories > .inner .all-authors > .inner,
+  #categories > .inner .all-categories > .inner {
+    margin-right: 0;
+  }
+}
+@media (max-width: 768px) {
+  #authors > .inner .all-authors,
+  #authors > .inner .all-categories,
+  #categories > .inner .all-authors,
+  #categories > .inner .all-categories {
+    flex-basis: 100%;
+  }
+}
+@media (max-width: 768px) {
+  #authors > .inner,
+  #categories > .inner {
+    margin-right: 0;
+  }
+}
+
+.edit-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1059;
+  background-color: rgba(128, 128, 128, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.edit-container .inner {
+  background-color: white;
+  width: 30%;
+  padding: 30px;
+  border: 1px solid transparent;
+  border-radius: 30px;
+}
+.edit-container .inner #adm-edit-book-form,
+.edit-container .inner #adm-edit-author-form,
+.edit-container .inner #adm-edit-category-form,
+.edit-container .inner #edit-note-form {
+  width: 100%;
+}
+.edit-container .inner #adm-edit-book-form > *:not(:last-child),
+.edit-container .inner #adm-edit-author-form > *:not(:last-child),
+.edit-container .inner #adm-edit-category-form > *:not(:last-child),
+.edit-container .inner #edit-note-form > *:not(:last-child) {
+  margin-bottom: 20px;
+}
+.edit-container .inner #adm-edit-book-form > .title,
+.edit-container .inner #adm-edit-author-form > .title,
+.edit-container .inner #adm-edit-category-form > .title,
+.edit-container .inner #edit-note-form > .title {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  display: block;
+}
+.edit-container .inner #adm-edit-book-form .ab-feedback,
+.edit-container .inner #adm-edit-author-form .ab-feedback,
+.edit-container .inner #adm-edit-category-form .ab-feedback,
+.edit-container .inner #edit-note-form .ab-feedback {
+  display: none;
+  font-style: italic;
+  font-size: 12px;
+  color: red;
+}
+@media (max-width: 1440px) {
+  .edit-container .inner {
+    width: 40%;
+  }
+}
+@media (max-width: 1024px) {
+  .edit-container .inner {
+    width: 50%;
+  }
+}
+@media (max-width: 768px) {
+  .edit-container .inner {
+    width: 70%;
+  }
+}
+@media (max-width: 425px) {
+  .edit-container .inner {
+    width: 100%;
+  }
+}
+
+.root {
+  display: grid;
+  grid-template-columns: 30% 70%;
+}
+.root .book .img {
+  width: 80%;
+  margin: 0 auto;
+}
+.root .book .img img {
+  border-radius: 20px;
+  overflow: hidden;
+}
+.root .book .img .info {
+  padding: 10px;
+  text-align: end;
+}
+.root .book .img .info > * {
+  display: block;
+  font-weight: bold;
+}
+.root .book .img .info > *:not(:last-child) {
+  margin-bottom: 5px;
+}
+@media (max-width: 768px) {
+  .root .book {
+    width: 70%;
+    margin: 0 auto;
+    background-color: rgba(184, 184, 184, 0.2);
+    padding: 30px 0;
+    border-radius: 30px;
+  }
+}
+@media (max-width: 425px) {
+  .root .book {
+    width: 100%;
+  }
+}
+.root .comments-notes .choose {
+  text-align: center;
+}
+.root .comments-notes .choose > span.btn {
+  display: inline-block;
+  color: #007bff;
+  font-weight: 500;
+  transition: 0.3s ease;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+.root .comments-notes .choose > span.btn:not(:last-child) {
+  margin-right: 5px;
+}
+.root .comments-notes .choose > span.btn:hover {
+  scale: 1.15;
+}
+@media (max-width: 768px) {
+  .root .comments-notes .choose {
+    margin-bottom: 20px;
+  }
+}
+.root #comments-container > *:not(:last-child) {
+  margin-bottom: 10px;
+}
+.root #comments-container .title h2 {
+  margin-bottom: 0;
+}
+.root #comments-container #add-comment {
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.336);
+}
+.root #comments-container #add-comment #add-comment-form .form-group:not(:last-child) {
+  margin-bottom: 10px;
+}
+.root #comments-container #add-comment #add-comment-form .form-group .form-control {
+  border-color: transparent;
+}
+.root #comments-container #add-comment #add-comment-form .form-group .ab-feedback {
+  display: none;
+  font-style: italic;
+  font-size: 12px;
+  color: red;
+}
+.root #comments-container #add-comment #add-comment-form .form-group.btn {
+  text-align: right;
+}
+.root #comments-container #add-comment #add-comment-form .form-group.btn button[type=submit] {
+  border: 1px solid transparent;
+  padding: 5px 10px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.root #comments-container .comments .comment {
+  position: relative;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+.root #comments-container .comments .comment:not(:last-child) {
+  margin-bottom: 15px;
+}
+.root #comments-container .comments .comment .user-info {
+  width: -moz-max-content;
+  width: max-content;
+  margin-bottom: 10px;
+}
+.root #comments-container .comments .comment .user-info .comment-posted-ago {
+  margin-left: 5px;
+  color: grey;
+  font-size: 10px;
+}
+.root #comments-container .comments .comment .user-info .username {
+  font-size: 12px;
+  display: block;
+}
+.root #comments-container .comments .comment .action {
+  position: absolute;
+  right: 10px;
+}
+.root #comments-container .comments .comment .action .fa-trash {
+  color: red;
+  cursor: pointer;
+}
+.root #notes-container > *:not(:last-child) {
+  margin-bottom: 10px;
+}
+.root #notes-container .title h2 {
+  margin-bottom: 0;
+}
+.root #notes-container #add-note-form {
+  width: 50%;
+  margin: 0 auto;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.336);
+}
+.root #notes-container #add-note-form .form-group:not(:last-child) {
+  margin-bottom: 10px;
+}
+.root #notes-container #add-note-form .form-group.btn {
+  text-align: right;
+}
+.root #notes-container #add-note-form .form-group.btn button[type=submit] {
+  border: 1px solid transparent;
+  padding: 5px 10px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.root #notes-container #add-note-form .form-group .ab-feedback {
+  display: none;
+  font-style: italic;
+  font-size: 12px;
+  color: red;
+}
+.root #notes-container .notes .note {
+  position: relative;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+}
+.root #notes-container .notes .note:hover {
+  background-color: rgba(128, 128, 128, 0.13);
+}
+.root #notes-container .notes .note .note-info {
+  width: -moz-max-content;
+  width: max-content;
+  margin-bottom: 10px;
+}
+.root #notes-container .notes .note .note-info > *:not(:last-child) {
+  margin-bottom: 5px;
+}
+.root #notes-container .notes .note .note-info .note-title {
+  font-weight: bold;
+}
+.root #notes-container .notes .note .note-info .note-note {
+  font-size: 12px;
+  display: block;
+}
+.root #notes-container .notes .note .actions {
+  position: absolute;
+  right: 10px;
+}
+.root #notes-container .notes .note .action:not(:last-child) {
+  margin-right: 5px;
+}
+.root #notes-container .notes .note .action .fa-trash {
+  color: red;
+  cursor: pointer;
+}
+.root #notes-container .notes .note .action .fa-pen-to-square {
+  color: limegreen;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .root {
+    display: flex;
+    flex-direction: column;
+  }
+  .root > *:not(:last-child) {
+    margin-bottom: 30px;
+  }
+}
+
+footer {
+  background: linear-gradient(to right, #3498db, yellow);
+  padding: 15px 5px;
+  text-align: center;
+}
+footer span {
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+@media (max-width: 768px) {
+  footer {
+    padding: 10px 5px;
+  }
+}/*# sourceMappingURL=main.css.map */

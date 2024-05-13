@@ -1,0 +1,107 @@
+@use "../abstracts/mixins" as mix;
+@use "../abstracts/variables" as var;
+@use "sass:math";
+
+#lsp {
+  height: 100vh;
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    .inner {
+      flex-basis: 30%;
+      padding: 15px;
+      border-radius: var.$gutter-base var.$gutter-base 0 0;
+      box-shadow: 0px 0px math.div(var.$gutter-base, 5) 2px
+        var.$background-color-tertiary;
+      & > * {
+        &:not(:last-child) {
+          margin-bottom: math.div(var.$gutter-base, 2);
+        }
+      }
+      .ls-avatar {
+        width: var.$gutter-base * 4;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      #user-register-form,
+      #user-log-in-form {
+        & > h3 {
+          text-align: center;
+        }
+        .ls-feedback {
+          display: none;
+          font-size: 12px;
+          font-style: italic;
+          color: red;
+        }
+        .form-group {
+          display: flex;
+          align-items: center;
+          &:not(:last-child) {
+            margin-bottom: math.div(var.$gutter-base, 2);
+          }
+          .icon {
+            text-align: center;
+            background-color: var.$background-color-tertiary;
+            padding: 10px;
+            flex-basis: 15%;
+            border: 1px solid var.$background-color-tertiary;
+            border-radius: 30px 0px 0px 30px;
+          }
+          .form-control {
+            flex-basis: 85%;
+            padding: 10px;
+            border: 1px solid var.$background-color-tertiary;
+            border-width: 1px;
+            border-color: grey grey grey var.$background-color-tertiary;
+
+            border-radius: 0px 30px 30px 0px;
+
+            &:focus {
+              outline: none;
+              border-color: var.$background-color-tertiary;
+            }
+          }
+          & > button[type="submit"] {
+            padding: 10px;
+            width: 120px;
+            border: 1px solid var.$background-color-tertiary;
+            border-radius: 30px;
+            background-color: white;
+            transition: 0.3s ease;
+            &:hover {
+              cursor: pointer;
+              background-color: rgba(128, 128, 128, 0.37);
+            }
+          }
+        }
+      }
+      #user-log-in-form {
+        & > small {
+          text-align: center;
+          display: block;
+          #dha-signup {
+            text-align: center;
+            color: var.$background-color-tertiary;
+            font-weight: var.$font-weight-medium-bold;
+            cursor: pointer;
+          }
+        }
+      }
+      @include mix.laptop-l-styles {
+        flex-basis: 40%;
+      }
+      @include mix.laptop-m-styles {
+        flex-basis: 60%;
+      }
+      @include mix.tablet-styles {
+        flex-basis: 80%;
+      }
+      @include mix.mobile-l-styles {
+        flex-basis: 90%;
+      }
+    }
+  }
+}

@@ -1,0 +1,155 @@
+@use "../abstracts/mixins" as mix;
+@use "../abstracts/variables" as var;
+@use "sass:math";
+
+.card {
+  margin: 30px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 0.625rem;
+  box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
+  flex-basis: 33.33%;
+
+  > * {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+
+  &__background {
+    object-fit: cover;
+    max-width: 100%;
+    height: 100%;
+  }
+
+  &__content {
+    --flow-space: 0.9375rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: flex-end;
+    height: 100%;
+    padding: 12% 1.25rem 1.875rem;
+    background: linear-gradient(
+      180deg,
+      hsla(0, 0%, 0%, 0) 0%,
+      hsla(0, 0%, 0%, 0.3) 10%,
+      hsl(0, 0%, 0%) 100%
+    );
+
+    &--container {
+      --flow-space: 1.25rem;
+    }
+  }
+
+  &__title {
+    position: relative;
+    width: fit-content;
+    width: -moz-fit-content; /* Prefix required for Firefox */
+    color: white;
+
+    &::after {
+      content: "";
+      position: absolute;
+      height: 0.3125rem;
+      width: calc(100% + 1.25rem);
+      bottom: calc((1.25rem - 0.5rem) * -1);
+      left: -1.25rem;
+      background-color: var.$background-color-tertiary;
+    }
+  }
+
+  &__description {
+    padding: 20px 0;
+    color: white;
+    & > span {
+      display: block;
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  &__button {
+    padding: 0.75em 1.6em;
+    width: fit-content;
+    width: -moz-fit-content; /* Prefix required for Firefox */
+    font-variant: small-caps;
+    font-weight: bold;
+    border-radius: 0.45em;
+    border: none;
+    background-color: var.$background-color-tertiary;
+    font-size: 1.125rem;
+    color: white;
+
+    &:focus {
+      outline: 2px solid black;
+      outline-offset: -5px;
+    }
+  }
+
+  @media (any-hover: hover) and (any-pointer: fine) {
+    &__content {
+      transform: translateY(62%);
+      transition: transform 500ms ease-out;
+      transition-delay: 500ms;
+    }
+
+    &__title::after {
+      opacity: 0;
+      transform: scaleX(0);
+      transition: opacity 1000ms ease-in, transform 500ms ease-out;
+      transition-delay: 500ms;
+      transform-origin: right;
+    }
+
+    &__background {
+      transition: transform 500ms ease-in;
+    }
+
+    &__content--container > :not(&__title),
+    &__button {
+      opacity: 0;
+      transition: transform 500ms ease-out, opacity 500ms ease-out;
+    }
+
+    &:hover,
+    &:focus-within {
+      transform: scale(1.05);
+      transition: transform 500ms ease-in;
+    }
+
+    &:hover &__content,
+    &:focus-within &__content {
+      transform: translateY(0);
+      transition: transform 500ms ease-in;
+    }
+
+    &:focus-within &__content {
+      transition-duration: 0ms;
+    }
+
+    &:hover &__background,
+    &:focus-within &__background {
+      transform: scale(1.3);
+    }
+
+    &:hover &__content--container > :not(&__title),
+    &:hover &__button,
+    &:focus-within &__content--container > :not(&__title),
+    &:focus-within &__button {
+      opacity: 1;
+      transition: opacity 500ms ease-in;
+      transition-delay: 1000ms;
+    }
+
+    &:hover &__title::after,
+    &:focus-within &__title::after {
+      opacity: 1;
+      transform: scaleX(1);
+      transform-origin: left;
+      transition: opacity 500ms ease-in, transform 500ms ease-in;
+      transition-delay: 500ms;
+    }
+  }
+}

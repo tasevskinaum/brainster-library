@@ -1,0 +1,18 @@
+@use "../abstracts/mixins" as mix;
+@use "../abstracts/variables" as var;
+@use "sass:math";
+
+footer {
+  background: linear-gradient(to right, #3498db, yellow);
+  padding: 15px 5px;
+  text-align: center;
+  span {
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: var.$font-weight-medium-bold;
+    letter-spacing: 2px;
+  }
+  @include mix.tablet-styles {
+    padding: 10px 5px;
+  }
+}
