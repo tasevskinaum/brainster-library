@@ -5,6 +5,7 @@ import { authorFunctions } from "./ManageAuthors/manage_authors.js";
 import { categoryFunctions } from "./ManageCategories/manage_categories.js";
 import { commentFuntions } from "./ManageComments/manage_comments.js";
 import { adminPageFunctions } from "./Functions/functions.js";
+import { serverBaseURL } from "../config.js";
 
 const {
     addBookForm,
@@ -88,7 +89,7 @@ addBookForm.submit(function (e) {
     const requestData = { author, category, title, pagesNumber, publicationYear, imgUrl };
 
     $.ajax({
-        url: "http://localhost:3000/api/book/add",
+        url: serverBaseURL + "api/book/add",
         type: 'POST',
         data: JSON.stringify(requestData),
         contentType: 'application/json; charset=utf-8',
@@ -121,7 +122,7 @@ addAuthorForm.submit(function (e) {
     const requestData = { firstname, lastname, bio };
 
     $.ajax({
-        url: "http://localhost:3000/api/author/add",
+        url: serverBaseURL + "api/author/add",
         type: 'POST',
         data: JSON.stringify(requestData),
         contentType: 'application/json; charset=utf-8',
@@ -165,7 +166,7 @@ addCategoryForm.submit(function (e) {
     const requestData = { category };
 
     $.ajax({
-        url: "http://localhost:3000/api/book/category/add",
+        url: serverBaseURL + "api/book/category/add",
         type: 'POST',
         data: JSON.stringify(requestData),
         contentType: 'application/json; charset=utf-8',
