@@ -1,6 +1,8 @@
 # brainster-library
 
-# Naum Tasevski
+Overview:
+
+This project is a book library application where users can view, search, and interact with a collection of programming books. It allows users to browse books, view detailed information about them, and read public comments. Registered users can also leave comments, both public and private, while an admin has full control over the library, including CRUD operations on various entities.
 
 Start the project (local):
 To run the project on your local machine you just need to start a local php server.
